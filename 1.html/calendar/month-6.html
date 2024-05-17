@@ -1,105 +1,138 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>우리말 달력 - 2024</title>
-  <meta charset="UFT-8" />
-  <style>
-    table {
-      border-collapse: collapse;
-      border-color: #ddd;
-      background-color: #fafafa;
-    }
+  <head>
+    <title>우리말 달력 - 2024</title>
+    <meta charset="UFT-8" />
+    <style>
+      .wrap {
+        margin: 0 auto;
+        text-align: center;
+      }
+      main {
+        text-align: center;
+      }
+      table {
+        margin: 0 auto;
+        width: 50%;
+        border-collapse: collapse;
+        background-color: #fcfcfc;
+        margin-bottom:40px ;
+      }
+      nav span {
+        font-size: 20px;
+        font-weight:700;
+        margin: 0 32px;
+      }
+      img {
+        width: 50%;
+      }
+      table tr,
+      table th,
+      table td {
+        width: 14%;
+        padding: 16px 8px;
+        border: 1px solid #dcdcdc;
+      }
 
-    table tr,
-    table th,
-    table td {
-      padding: 16px 8px;
-    }
-  </style>
-</head>
+      tr th {
+        background-color: #fff4f4;
+      }
 
-<body>
-  <center>
-    <header>
-      <h1>우리말 달력</h1>
+      th:first-of-type, td:first-of-type {
+        color: #ff5858;
+        font-weight: 700;
+      }
 
-    </header>
-    <nav>
-      <a href="./month-5.html">
-        < 5월</a>
-          &nbsp;&nbsp;&nbsp;&nbsp;<strong>2024년 6월</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-          <a href="./month-7.html">7월 ></a>
-    </nav>
-    <main>
-      <p><img src="../img/6.jpg" alt="누리달" width="50%" /></p>
-      <table border="1" width="50%">
-        <tr>
-          <th width="14%" style="color: red">일</th>
-          <th width="14%">월</th>
-          <th width="14%">화</th>
-          <th width="14%">수</th>
-          <th width="14%">목</th>
-          <th width="14%">금</th>
-          <th width="14%" style="color: blue">토</th>
-        </tr>
+      th:last-of-type, td:last-of-type {
+        color: #5353e6;
+        font-weight: 700;
+      }
 
-        <tr>
-          <td align="right" style="color: red"></td>
-          <td align="right"></td>
-          <td align="right"></td>
-          <td align="right"></td>
-          <td align="right"></td>
-          <td align="right"></td>
-          <td align="right" style="color: blue">1</td>
-        </tr>
-        <tr>
-          <td align="right" style="color: red">2</td>
-          <td align="right">3</td>
-          <td align="right">4</td>
-          <td align="right">5</td>
-          <td align="right" style="color: red">6</td>
-          <td align="right">7</td>
-          <td align="right" style="color: blue"><br>8</td>
-        </tr>
-        <tr>
-          <td align="right" style="color: red">9</td>
-          <td align="right">10</td>
-          <td align="right">11</td>
-          <td align="right">12</td>
-          <td align="right">13</td>
-          <td align="right">14</td>
-          <td align="right" style="color: blue">15</td>
-        </tr>
-        <tr>
-          <td align="right" style="color: red">16</td>
-          <td align="right">17</td>
-          <td align="right">18</td>
-          <td align="right">19</td>
-          <td align="right">20</td>
-          <td align="right">21</td>
-          <td align="right" style="color: blue">22</td>
-        </tr>
-        <tr>
-          <td align="right" style="color: red">23</td>
-          <td align="right">24</td>
-          <td align="right">25</td>
-          <td align="right">26</td>
-          <td align="right">27</td>
-          <td align="right">28</td>
-          <td align="right" style="color: blue">29</td>
-        </tr>
-        <tr>
-          <td align="right" style="color: red">30</td>
-          <td align="right"></td>
-          <td align="right"></td>
-          <td align="right"></td>
-          <td align="right"></td>
-          <td align="right"></td>
-          <td align="right"></td>
-        </tr>
-      </table>
-    </main>
-    <p><br><br><br></p>
-  </center>
-</body>
+      .red {
+        color: #ff5858;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>우리말 달력</h1>
+      </header>
+      <nav>
+        <a href="./month-5.html"> < 5월</a>
+        <span>2024년 6월</span>
+        <a href="./month-7.html">7월 ></a>
+      </nav>
+      <main>
+        <p><img src="../img/6.jpg" alt="누리달" /></p>
+        <table>
+          <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td class="red">6</td>
+            <td>7</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </main>
+    </div>
+  </body>
 </html>
