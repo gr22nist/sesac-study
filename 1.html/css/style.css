@@ -1,0 +1,59 @@
+body {
+    font-family: "SUIT Variable", sans-serif;
+    font-size: 16px;
+}
+a {
+text-decoration: none;
+color: #003518;
+}
+a:hover {
+opacity:.6;
+}
+.wrap {
+width: 100%;
+margin: 0 auto;
+background-color: #3BB900;
+}
+header {
+height: 40px;
+}
+nav {
+font-size: 1.2em;
+font-weight: 500;
+}
+
+nav ul li a {
+background-color: #003518;
+color: #fff;
+padding: 4px 16px;
+border-radius: 16px;
+
+
+}
+main {
+width: 320px;
+height: 480px;
+background-color: #3BB900;
+}
+footer {
+padding: 8px 0;
+background-color: #008d3f;
+color: #fff;
+}
+
+header,
+nav,
+main,
+footer {
+text-align: center;
+}
+h1 {
+font-size: 5em;
+}
+ul,
+li {
+list-style: none;
+}
+li {
+display: inline-block;
+}

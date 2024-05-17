@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation 효과</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #a00;
+            position: relative;
+            animation-name: moveLeft;
+            animation-duration: 2.0s;
+            animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+        }
+        @keyframes moveLeft {
+            0% { left : 0; }
+            30% { left : 400px; }
+            100% { left: 200px; }
+        }
+        .text{
+            color: #000;
+            animation-name: fadeOut;
+            animation-duration: 1.0s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 0; }
+            100% { opacity: 100; }
+        }
+
+        .circle{
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+            border-radius: 20%;
+            animation-name: rotateAndScale;
+            animation-duration: 3.0s;
+            animation-timing-function: ease-in;
+            animation-iteration-count: infinite;
+        }
+        @keyframes rotateAndScale {
+            0% { transform: rotate(0deg); scale: 1;}
+            50% { transform: rotate(180deg); scale: 2;}
+            100% { transform: rotate(360deg); scale: 1;}
+        }
+
+        .img {
+            width: 200px;
+            height: 200px;
+            animation-name: shake;
+            animation-duration: 5.0s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0deg);}
+            25% { transform: translateX(-5deg);}
+            75% { transform: translateX(5deg);}
+            100% { transform: translateX(0deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <br>
+    <p class="text">Fadeout Animation</p>
+    <br>
+    <div class="circle"></div>
+    <br>
+    <img src="../img/cat2.jfif" class="img">
+</body>
+</html>
