@@ -1,14 +1,16 @@
+/* common */
 body {
     font-family: "SUIT Variable", sans-serif;
     font-size: 16px;
 }
 a {
-text-decoration: none;
 color: #003518;
 }
 a:hover {
 opacity:.6;
 }
+
+/* layout */
 .wrap {
 width: 100%;
 margin: 0 auto;
