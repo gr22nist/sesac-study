@@ -1,0 +1,171 @@
+/* common */
+body {
+    font-family: "SUIT Variable", sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+}
+/* layout */
+main {
+    width: 389px;
+    margin: 5em auto 2.5em;
+    background-color: #009141;
+    border-radius: 1em;
+}
+
+.tabs {
+    background-color: #f5f5f5;
+    color: #999;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1em 1em 0 0;
+}
+.tab_item {
+    width: calc(100% / 2);
+    display: block;
+    text-align: center;
+    padding: 1em 0;
+    color: #999;
+    border-radius: 1em 1em 0 0;
+    transition: ease .3s;
+}
+.tab_item:hover {
+    opacity: 0.6;
+}
+input[name="tab_item"] {
+    display: none;
+}
+.tab_content {
+    height: 444px;
+    display: none;
+    border-radius: 1em;
+    background-color: #009141;
+}
+#home:checked + label[for="home"] + #contact + label[for="contact"] + #home_content {
+    display: flex;
+}
+#contact:checked + label[for="contact"] + #home + label[for="home"] + #contact_content {
+    display: flex;
+}
+.tabs input:checked + .tab_item {
+    background-color: #009141;
+    color: #fff;
+    font-weight: 700;
+}
+.tab_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5em;
+}
+.tab_content .profile {
+    width: 7.5em;
+    height: 7.5em;
+    margin: 0 auto;
+    border-radius: 3.75em;
+    background-image: url(../img/profile.svg);
+    background-size: cover;
+}
+.tab_content .bio h3 {
+    padding-top: 1.50em;
+    color: #fff;
+    font-size: 1.50em;
+}
+.tab_content .bio p {
+    color: rgba(255, 255, 255, .6);
+    font-weight: 700;
+    margin-top: 1em;
+    text-align: center;
+}
+.tab_content .link_set {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 4.00em;
+    gap: 1em;
+}
+.tab_content .link_set > div {
+    width: 2em;
+    height: 2em;
+}
+.tab_content .link_set .github {
+    background-image: url(../img/GithubLogo.svg);
+    background-size: cover;
+}
+.tab_content .link_set .github:hover {
+    background-image: url(../img/GithubLogo_hover.svg); 
+    transition: ease .5s;
+}
+.tab_content .link_set span{
+    width: 1px;
+    height: 1em;
+    background-color: rgba(255, 255, 255, .3);
+}
+.tab_content .link_set .figma {
+    background-image: url(../img/FigmaLogo.svg);
+    background-size: cover;
+}
+.tab_content .link_set .figma:hover {
+    background-image: url(../img/FigmaLogo_hover.svg); 
+    transition: ease .5s;
+}
+.tab_content h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2.5em;
+}
+.tab_content form {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+}
+.tab_content form label {
+    color: rgba(255, 255, 255, .6);
+    display: block;
+    margin-bottom: .5em;
+    text-align: left;
+}
+.tab_content form #user_name,
+.tab_content form #inquiry_content {
+    border: 0;
+    width: calc(100% - 1em);
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+.tab_content form #user_name {
+    height: 2.5em;
+}
+.tab_content form #inquiry_content {
+    width: calc(100% - 1em);
+    height: 10em;
+    overflow: hidden;
+    resize: none;
+}
+.tab_content form #submit {
+    border: 0;
+    border-radius: 1.2em;
+    text-align: center;
+    background-color: #BDFF00;
+    padding: .5em 2em;
+    color: #009141;
+    font-size: 1em;
+    font-weight: 700;
+}
+.tab_content form #submit:hover {
+    background-color: #fff;
+    transition: ease .3s;
+}
+footer {
+    font-size: 0.88em;
+    text-align: center;
+    padding: 0.63em 0;
+    color: hwb(0 60% 40%);
+}
+

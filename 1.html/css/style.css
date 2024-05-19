@@ -3,12 +3,7 @@ body {
     font-family: "SUIT Variable", sans-serif;
     font-size: 16px;
 }
-a {
-color: #003518;
-}
-a:hover {
-opacity:.6;
-}
+
 
 /* layout */
 .wrap {
