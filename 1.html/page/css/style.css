@@ -33,7 +33,8 @@ main {
     transition: ease .3s;
 }
 .tab_item:hover {
-    opacity: 0.6;
+    background-color: #BDFF00;
+    color: #009141;
 }
 input[name="tab_item"] {
     display: none;
