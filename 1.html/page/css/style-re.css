@@ -11,22 +11,18 @@ main {
     background-color: #009141;
     border-radius: 1em;
 }
-.tabs {
-    background-color: #f5f5f5;
-    color: #999;
+.tab_container {
     width: 100%;
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     border-radius: 1em 1em 0 0;
 }
 .tab_item {
     width: calc(100% / 2);
-    display: block;
+    flex: 1;
     text-align: center;
     padding: 1em 0;
+    background-color: #f5f5f5;
     color: #999;
     border-radius: 1em 1em 0 0;
     transition: ease .3s;
@@ -45,6 +41,11 @@ input[name="tab_item"] {
     background-color: #009141;
     overflow: hidden;
 }
+
+.tab_content:target {
+    display: block;
+}
+
 #home:checked ~ #home_content,
 #content:checked ~ #content_content {
     display: flex;
@@ -167,3 +168,4 @@ footer {
     padding: 0.63em 0;
     color: hwb(0 60% 40%);
 }
+
