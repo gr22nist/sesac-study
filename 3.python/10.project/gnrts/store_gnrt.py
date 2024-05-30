@@ -1,11 +1,12 @@
 import random
 
 class STR_TypeGNRT:
+    type = []
     
     def __init__(self):
-        self.type = []
+
         
-        with open('brands.txt', 'r', encoding='utf-8') as file:
+        with open('../data/brands.csv', 'r', encoding='utf-8') as file:
             types = file.read().split(',')
             self.type = types
 
@@ -21,7 +22,7 @@ class STR_NameGNRT:
     def __init__(self):
         self.store = []
 
-        with open('stores.txt', 'r', encoding='utf-8') as file:
+        with open('../data/location.txt', 'r', encoding='utf-8') as file:
             stores = file.read().split(',')
             self.store = stores
 

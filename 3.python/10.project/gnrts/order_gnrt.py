@@ -1,37 +1,22 @@
 import random
-from datetime import datetime
-
-
-# 아이템 메뉴 제너레이터
-
-# class ITM_NameGNRT:
-#     menus = pd.read_csv('menu.csv', encoding="cp949")
-#     sample = menus['Name', 'Price', 'Type']
-    
-#     def __init__(self):
-#         self.name = self.menus.loc(self.menus['Name'])
-
-#         # with open('menu.csv', 'r', encoding='utf-8') as file:
-#         #     names = file.read().split(",")
-#         #     self.name = names
-
-#     def gnrt_storename(self):
-#         self.name = random.choice(self.name)
-#         return self.name
-        
-# n = ITM_NameGNRT()
-# print(n.gnrt_storename())
-
 
 class ORD_AtGNRT:
-    date = []
-    time = []
+
     
-    def gnrt_at(self):
-        
-        self.date = f"{random.randint(2019, 2024)}-{random.randint(1, 12):02d}-{random.randint(1, 28):02d}"
-        self.time = f"{random.randint(0, 23):02d}:{random.randint(0, 59)}:{random.randint(0, 59)}"
+    def __init__(self):
+        self.date = []
+        self.time = []
+        self.year = random.randint(2019, 2024)
+        self.month = random.randint(1,12)
+        self.day = random.randint(1, 28 if self.month == 2 else 30 if self.month in [4, 6, 9, 11] else 31)
+        self.hrs = random.randint(0, 23)
+        self.min = random.randint(0, 59)
+        self.sec = random.randint(0, 59)
+    
+    def gnrt_at(self):        
+        self.date = f"{self.year}-{self.month:02d}-{self.day:02d}"
+        self.time = f"{self.hrs:02d}:{self.min:02d}:{self.sec:02d}"
         return self.date, self.time
     
-n = ORD_AtGNRT()
-print(n.gnrt_at())
+# n = ORD_AtGNRT()
+# print(n.gnrt_at())

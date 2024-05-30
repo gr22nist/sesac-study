@@ -1,12 +1,12 @@
 import csv
 
-class DataPrinter:
+class DataPRT:
   def print_to_screen(self, data):
     for d in data:
       print(d)
       
   def print_to_file(self, data):
-    with open('output.txt', 'w', encoding='uft-8') as file:
-      writer = csv.writer(file)
+    with open('order.csv', 'w', encoding='utf-8') as csv_file:
+      csv_writer = csv.writer(csv_file)
       for d in data:
-        writer.writerow(d)
+        csv_writer.writerow(d)
