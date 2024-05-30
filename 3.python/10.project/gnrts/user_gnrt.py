@@ -1,25 +1,24 @@
 import random
-import datetime
+from datetime import datetime
 
 class NameGNRT:
-    
-    def __init__(self):
+
+        
+    def __init__(self):   
         self.lname = []
-        self.fname = []
-    
-        with open('lnames.txt', 'r', encoding='utf-8') as file:
+        self.fname = [] 
+        
+        with open('../data/lnames.csv', 'r', encoding='utf-8') as file:
             self.lname = file.read().split(',')
 
-        with open('fnames.txt', 'r', encoding='utf-8') as file:
+        with open('../data/fnames.csv', 'r', encoding='utf-8') as file:
             self.fname = file.read().split(',')
-        
-        # return self.lname, self.fname
 
     def gnrt_name(self):
         return f"{random.choice(self.lname)}{random.choice(self.fname)}"
 
-# n = NameGNRT()
-# print(n.gnrt_name())
+n = NameGNRT()
+print(n.gnrt_name())
 
 class GenderGNRT:
     gender = ["Male", "Female"]
@@ -40,10 +39,9 @@ class BirthGNRT:
         month = random.choice(self.months)
         day = random.randint(1, 28 if month == 2 else 30 if month in [4, 6, 9, 11] else 31)
         
-        current_year = datetime.datetime.now().year
+        current_year = datetime.now().year
         age = current_year - year
-        
-        return f"{year}-{month:02d}-{day:02d}, {age}세"
+        return  {age}, f"{year}-{month:02d}-{day:02d}"
 
 # b = BirthGNRT()
 # print(b.gnrt_birthdate())
