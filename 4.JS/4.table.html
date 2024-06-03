@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+ <h1>테이블</h1>
+ <table>
+  <tr>
+    <td>셀1</td>
+    <td>셀2</td>
+    <td>셀3</td>
+    <td>셀4</td>
+  </tr>
+  <tr>
+    <td>셀5</td>
+    <td>셀6</td>
+    <td>셀7</td>
+    <td>셀8</td>
+  </tr>
+  <tr>
+    <td>셀9</td>
+    <td>셀10</td>
+    <td>셀11</td>
+    <td>셀12</td>
+  </tr>
+  <tr>
+    <td>셀13</td>
+    <td>셀14</td>
+    <td>셀15</td>
+    <td>셀16</td>
+  </tr>
+ </table>
+
+ <button onclick="changeCellColor()">셀 색상 변경</button>
+ <button onclick="changeEvenCellColor()">짝수 셀 색상 변경</button>
+ <button onclick="changeOddCellColor()">혹수 셀 색상 변경</button>
+
+ <script>
+  const NUM_OF_CELLS = 16;
+  function changeCellColor() {
+    // 모든 셀을 선택해서 해당 셀의 배경 색상을 변경하시오
+    var cells = document.getElementsByTagName('td');
+    // console.log(cells[0]);
+      for (var i = 0; i < cells.length; i++) {
+        cells[i].style.backgroundColor = "lightblue"
+    }
+  }
+
+
+  function changeEvenCellColor() {
+    // 모든 셀을 선택해서 해당 셀의 배경 색상을 변경하시오
+    var cells = document.getElementsByTagName('td');
+    // console.log(cells[0]);
+      for (var i = 1; i < cells.length; i+=2) {
+
+        if (i % 2 === 1) {
+          cells[i].style.backgroundColor = "lightgreen"
+        }
+    }
+  }
+
+  function changeOddCellColor() {
+    // 모든 셀을 선택해서 해당 셀의 배경 색상을 변경하시오
+    var cells = document.getElementsByTagName('td');
+    // console.log(cells[0]);
+      for (var i = 0; i < cells.length; i+=2) {
+
+        if (i % 2 == 0) {
+          cells[i].style.backgroundColor = "#ff8080"
+        }
+    }
+  }
+ </script>
+</body>
+</html>
