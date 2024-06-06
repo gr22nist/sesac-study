@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바스크립트로 switch-case 구문 사용해보기</h1>
+    <select id="fruitSelector" onchange="fruitDisplay()">
+        <option value="" >== 선택 ==</option>
+        <option value="Apple" >Apple</option>
+        <option value="Banana">Banana</option>
+        <option value="Cherry">Cherry</option>
+    </select>
+    <script>
+       function fruitDisplay(){
+        fruitSelector = document.getElementById('fruitSelector').value;
+        fruitresult = document.getElementById('fruitResult')
+        switch (fruitSelector) {
+            case "Apple":
+            fruitresult.innerHTML = '<b>사과</b>가 선택되었습니다.'  // 태그를 포함하는 글자
+            break;
+            case "Banana":
+            fruitresult.innerText = '바나나가 선택되었습니다.'  // 순수글자
+            break;
+            case "Cherry":
+            fruitresult.textContent = '체리가 선택되었습니다.'  // 순수글자
+            break;
+        }
+       }
+
+
+
+    </script>
+    <div id="fruitResult">
+
+    </div>
+</body>
+</html>
