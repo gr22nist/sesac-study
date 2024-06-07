@@ -23,6 +23,7 @@ todoInput.addEventListener('keypress', function(e) {
 // 할 일 추가 함수
 function taskAdd() {
     if (todoInput.value !== '') {
+
         //  새로운 항목 생성
         const items = document.createElement('li');
         items.classList.add('todoItem');

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드 게임</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        #board {
+            width: calc(240px + 32px);
+            height: calc(240px + 32px);
+            background-color: #ccc;
+            padding: 8px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 4px;
+        }
+        #board .chip {
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            color: #666;
+            
+        }
+
+        #board .blank {
+            background-color: #666;
+        }
+
+        #board .bg1 {
+            background: url(./img/01.png);
+            background-size: cover;
+        }
+        #board .bg2 {
+            background: url(./img/02.png);
+            background-size: cover;
+        }
+        #board .bg3 {
+            background: url(./img/03.png);
+            background-size: cover;
+        }
+        #board .bg4 {
+            background: url(./img/04.png);
+            background-size: cover;
+        }
+        #board .bg5 {
+            background: url(./img/05.png);
+            background-size: cover;
+        }
+        #board .bg6 {
+            background: url(./img/06.png);
+            background-size: cover;
+        }
+        #board .bg7 {
+            background: url(./img/07.png);
+            background-size: cover;
+        }
+        #board .bg8 {
+            background: url(./img/08.png);
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>슬라이드 게임</h1>
+    <div id="board">
+        <div class="chip bg1"></div>
+        <div class="chip bg2"></div>
+        <div class="chip bg3"></div>
+        <div class="chip bg4"></div>
+        <div class="chip bg5"></div>
+        <div class="chip bg6"></div>
+        <div class="chip bg7"></div>
+        <div class="chip bg8"></div>
+        <div class="chip blank"></div>
+    </div>
+</body>
+</html>

@@ -34,14 +34,13 @@ body {
 .todoWrap .input_sect input {
     flex-grow: 1;
     padding: 4px;
-    border: 0;
+    /* border: 0; */
     border-radius: 4px;
 }
 
 .todoWrap .input_sect button {
     width: 32px;
     height: 32px;
-    border: 0;
     border-radius: 4px;
     background-color: #999;
 }
@@ -66,8 +65,9 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 8px;
-    margin-bottom: 16px;
+    gap: 24px;
+
+
 }
 
 .todoWrap .list_sec #todolist #todoitem i {

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dragItem1 {
+            width: 100px;
+            height: 100px;
+            background-color: #fc0;
+            margin-bottom: 24px;
+        }
+        #dragItem2 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 145, 0);
+            margin-bottom: 24px;
+        }
+        #dragItem3 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(187, 255, 0);
+            margin-bottom: 24px;
+        }
+        #dropZone {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="dragItem1" draggable="true">Drag me</div>
+    <div id="dragItem2" draggable="true">Drag me</div>
+    <div id="dragItem3" draggable="true">Drag me</div>
+    <div id="dropZone">여기로 드롭</div>
+    <script>
+        const dragItem1 = document.getElementById('dragItem');
+        const dragItem2 = document.getElementById('dragItem');
+        const dragItem3 = document.getElementById('dragItem');
+        const dropZone = document.getElementById('dropZone');
+
+        dragItem.addEventListener('dragstart', function(event) {
+            event.dataTransfer.setData('text', event.target.id);    //  {'text': 'dragItem'}
+            console.log('드래그 시작중') 
+        });
+
+        dropZone.addEventListener('dragover', function(event) {
+            event.preventDefault(); // 기본 드래그 기능 비활성화
+            console.log('내 위로 드래그 발생중') 
+        });
+
+        dropZone.addEventListener('drop', function(event) {
+            event.preventDefault(); // 기본 드래그 기능 비활성화
+            const data = even.dataTransfer.getData('text')
+            const draggedElement = document.getElementById(data);
+            dropZone.appendChild(draggedElement);
+            console.log('여기에 드롭중')
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="calculrator">
+        <input type="text" id="inputBox" readonly>
+        <div class="numWrap" id="result">
+            <button onClick="appendrNumber(this.innerText)">+</button>
+            <button onClick="appendrNumber(this.innerText)">-</button>
+            <button onClick="appendrNumber(this.innerText)">*</button>
+            <button onClick="appendrNumber(this.innerText)">/</button>
+            <button onClick="appendrNumber(this.innerText)">7</button>
+            <button onClick="appendrNumber(this.innerText)">8</button>
+            <button onClick="appendrNumber(this.innerText)">9</button>
+            <button onClick="appendrNumber(this.innerText)">=</button>
+            <button onClick="appendrNumber(this.innerText)">4</button>
+            <button onClick="appendrNumber(this.innerText)">5</button>
+            <button onClick="appendrNumber(this.innerText)">6</button>
+            <button onClick="clearResult()">C</button>
+            <button onClick="appendrNumber(this.innerText)">1</button>
+            <button onClick="appendrNumber(this.innerText)">2</button>
+            <button onClick="appendrNumber(this.innerText)">3</button>
+            <button onClick="appendrNumber(this.innerText)">0</button>
+        </div>
+    </div>
+    <script>
+        function appendSymbol(symbol) {
+            //  입력된 부호가 중복이면 재입력 안하도록
+            //  input = document.getElementById('result');
+            lastinput = input.value.slice(-1);
+            //  lastinput = input.value.substring(input.value.length - 1);
+            //  lastinput = input.value.charAt(input.value.length - 1);
+            //  if (lastinput !== symbol) {
+                //  input.value += symbol;
+            if (checkLastSymbol()) {
+                input.value = input.value.slice(0, -1) + symbol;
+                input.value += symbol;
+            } else {
+                input.value += symbol;
+            }
+        }
+        function checkLastSymbol() {
+            input = document.getElementById('result');
+            lastinput = input.value.slice(-1);
+            if (isSymbol(lastinput)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+        function isSymbol(symbol) {
+            symbols = ['+', '-', '*', '/'];
+            checkInput = symbols.includes(symbol);
+
+            return checkInput
+            //  lastinput !== '+' && lastinput !== '-' && lastinput !== '*' && lastinput !== '/'
+        }
+        function appendrNumber(number) {
+            document.getElementById('result').value += number;
+        }
+
+        function clearResult() {
+            document.getElementById('inputBox').value = ''
+        }
+
+        function calculate() {
+            input = document.getElementById('result');
+            //  console.log(input)
+            try {
+                result = eval(input.value);
+                input = result;
+            }
+            catch (error) {
+                input.value = "ERROR";
+            }
+        }
+    </script>
+</body>
+</html>

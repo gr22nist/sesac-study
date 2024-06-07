@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Your Color</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        #full-screen {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+        }
+    
+        button {
+            padding: 16px 40px;
+            font-size: 1em
+        }
+
+        #colorCode {
+            padding: 24px 48px;
+            font-size: 2em;
+        }
+
+        button, #colorCode {
+            background:rgba(255, 255, 255, .8);
+            color: #000;
+            border: 2px solid #fff;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div id="full-screen">
+        <!-- 1. 버튼 하나를 센터에 추가한다 -->
+        <!-- 2. 버튼 클릭시 랜덤값을 rgb로 생성한다 -->
+        <!-- 3. 해당 값을 배경 색상으로 지정한다 -->
+        <button id="colorPick">Change Your Color!</button>
+        <div id="colorCode"></div>
+    </div>
+
+    <script>
+        function getRandomColor() {
+            //return "#" + Math.floor(Math.reandom() * 16777215).toString(16);
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            console.log(r, g, b)
+
+            return `RGB: [${r}, ${g}, ${b}]`
+        };
+        const colorPick = document.getElementById('colorPick');
+        const colorCode = document.getElementById('colorCode');
+        
+        colorPick.addEventListener('click', function() {
+            const randomColor = getRandomColor;
+            document.body.backgroundColor = rgb(randomColor);
+        });
+
+        //  새로운 항목 생성
+        const codeName = document.createElement('p');
+        colorCode.appendChild(codeName);
+    </script>
+</body>
+</html>

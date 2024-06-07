@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- jQuery 라이브러리 불러오기 -->
+
+</head>
+<body>
+    <h1 id="myHeading">Hello, jQuery!</h1>
+    <button id="changeText">Change Text</button>
+    <script>
+        //document.addEventListener('DOMConcentLoaded', function() {
+        //    document.getElementById('changeText').addEventListener('click', function() {
+        //        document.getElementById('myHeading').textContent = '글자 바꾸기';
+        //    });
+        //});
+
+        $(document).ready(function() {
+            $('#changeText').click(function() {
+                $('#myHeading').text('글자 바꾸기');
+            });
+        });
+    </script>
+</body>
+</html>
