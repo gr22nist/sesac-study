@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고양이 사진관</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/cat.css">
+    <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/196821e7aa.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>고양이 사진관</h1>
+        <div id="gallery">
+            <ul id="imgList">
+                <li><img id="galleryImg" src="./img/cat/cat_01.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_02.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_03.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_04.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_05.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_06.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_07.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_08.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_09.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_10.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_11.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_12.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_13.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_14.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_15.jpg" alt="" /></li>
+                <li><img id="galleryImg" src="./img/cat/cat_16.jpg" alt="" /></li>
+            </ul>
+            <div class="btnWrap">
+                <button id="prevBtn"><i class="fa-solid fa-caret-left"></i></button>
+                <button id="nextBtn"><i class="fa-solid fa-caret-right"></i></button>
+            </div>
+        </div>
+    </div>
+<script>
+
+    const imgs = document.querySelectorAll('#gallery #imgList li');
+    const imgLength = imgs.length;
+    let currentIndex = 0;
+    
+    document.getElementById('prevBtn').addEventListener('click', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            changeImg();
+        }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', function() {
+        if (currentIndex < imgLength - 1) {
+            currentIndex++;
+            changeImg();
+        }
+    });
+
+    function changeImg () {
+        const imgList = document.getElementById('imgList');
+        const transFormVal = -currentIndex * 100;
+        imgList.style.transform = `translateX(${transFormVal}%)`;
+    }
+</script>
+</body>
+
+</html>
