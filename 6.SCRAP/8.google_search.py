@@ -1,10 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 
-base_url = "https://search.naver.com/search.naver"
+base_url = "https://www.google.co.kr/search"
 
 def naver_search(query):
-    params = {"query": query}
+    params = {"q": query}
 
     response = requests.get(base_url, params=params, headers={"User-Agent": "Mozilla/5.0"})
     return response.text
@@ -14,12 +14,12 @@ contents = naver_search(query)
 
 soup = BeautifulSoup(contents, 'html.parser')
 
-search_result = soup.select('div.api_ani_send')
+search_result = soup.select('div.g')
 
 for item in search_result:
-    title_tag = item.select_one('a.api_txt_lines')
-    link_tag = item.select_one('a.api_txt_lines')
-    content_tag = item.select_one('div.api_txt_lines.dsc_txt')
+    title_tag = item.select_one('div.yuRUbf > a > h3')
+    link_tag = item.select_one('div.yuRUbf > a')
+    content_tag = item.select_one('div.VwiC3b > span')
     
     if title_tag and link_tag and content_tag:
         title = title_tag.get_text()
