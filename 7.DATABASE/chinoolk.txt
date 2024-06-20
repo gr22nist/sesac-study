@@ -1,0 +1,20 @@
+SELECT BillingCountry AS Country FROM invoices;
+SELECT BillingCountry AS Country, SUM(Total) FROM invoices;
+SELECT BillingCountry AS Country, SUM(Total) AS "토탈 판매량" FROM invoices GROUP BY BillingCountry;
+
+SELECT Country AS "가장 많이 지출한 국가", MAX('토탈 판매량') AS "최대 판매 금액"
+    FROM (
+        SELECT BillingCountry as Country, SUM(Total) AS "토탈 판매량"
+        FROM invoices GROUP BY BillingCountry
+    );
+
+
+------------------------------------------
+
+SELECT t.Name, COUNT(t.Name) AS "주문량"
+FROM tracks t 
+JOIN invoice_items i 
+ON i.TrackId = t.TrackId 
+GROUP BY t.Name
+ORDER BY "주문량" DESC
+LIMIT 10;

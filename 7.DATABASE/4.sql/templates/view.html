@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}VIEW PAGE{% endblock %}
+
+{% block content %}
+<H1>View Page</H1>
+    {% for user in users %}
+        <p>username: {{ user.name }}, password: {{ user.password }}, email: {{ user.email }}</p>
+    {% endfor%}
+{% endblock %}
