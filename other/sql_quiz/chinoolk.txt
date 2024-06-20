@@ -1,0 +1,85 @@
+SELECT BillingCountry AS Country FROM invoices;
+SELECT BillingCountry AS Country, SUM(Total) FROM invoices;
+SELECT BillingCountry AS Country, SUM(Total) AS "토탈 판매량" FROM invoices GROUP BY BillingCountry;
+
+SELECT Country AS "가장 많이 지출한 국가", MAX('토탈 판매량') AS "최대 판매 금액"
+    FROM (
+        SELECT BillingCountry as Country, SUM(Total) AS "토탈 판매량"
+        FROM invoices GROUP BY BillingCountry
+    );
+
+
+------------------------------------------
+
+SELECT t.Name, COUNT(t.Name) AS "주문량"
+FROM tracks t 
+JOIN invoice_items i 
+ON i.TrackId = t.TrackId 
+GROUP BY t.Name
+ORDER BY "주문량" DESC
+LIMIT 10;
+
+
+
+
+
+1. 미국에 있지 않은 고객의 전체 이름, 고객 ID 및 국가를 보여주는 쿼리를 제공하세요.
+.schema customers
+FirstName, LastName, CustomerId, Country
+SELECT FirstName || " " || LastName AS FullName FROM Customers;
+
+SELECT FirstName || " " || LastName AS FullName, CustomerId, Country FROM Customers;
+
+
+2. 브라질 고객만을 보여주는 쿼리를 제공하세요.
+
+SELECT DISTINCT Country FROM Customers;
+Brazil
+
+SELECT FirstName || " " || LastName AS FullName, Country FROM Customers WHERE Country = 'Brazil';
+
+
+
+3. 브라질 고객의 인보이스를 보여주는 쿼리를 제공하세요. 결과 테이블에는 고객의 전체 이름, 인보이스 ID, 인보이스 날짜 및 청구 국가가 표시되어야 합니다.
+
+4. 영업 사원인 직원만을 보여주는 쿼리를 제공하세요.
+
+5. 인보이스 테이블에서 고유한 청구 국가 목록을 보여주는 쿼리를 제공하세요.
+
+6. 브라질 고객의 인보이스를 보여주는 쿼리를 제공하세요.
+
+7. 각 영업 사원과 연관된 인보이스를 보여주는 쿼리를 제공하세요. 결과 테이블에는 영업 사원의 전체 이름이 포함되어야 합니다.
+
+8. 모든 인보이스와 고객에 대해 인보이스 총액, 고객 이름, 국가 및 영업 사원의 이름을 보여주는 쿼리를 제공하세요.
+
+9. 2009년과 2011년에 인보이스가 몇 개 있었는지, 각 연도의 총 판매량은 얼마였는지 보여주세요.
+
+10. InvoiceLine 테이블을 보고 인보이스 ID가 37인 항목 수를 COUNT하는 쿼리를 제공하세요.
+
+11. InvoiceLine 테이블을 보고 각 인보이스의 항목 수를 COUNT하는 쿼리를 제공하세요.
+
+12. 인보이스 라인 항목과 함께 트랙 이름을 포함하는 쿼리를 제공하세요.
+
+13. 인보이스 라인 항목과 함께 구매한 트랙 이름 및 아티스트 이름을 포함하는 쿼리를 제공하세요.
+
+14. 국가별 인보이스 수를 보여주는 쿼리를 제공하세요.
+
+15. 각 플레이리스트의 총 트랙 수를 보여주는 쿼리를 제공하세요. 결과 테이블에는 플레이리스트 이름이 포함되어야 합니다.
+
+16. 모든 트랙을 보여주는 쿼리를 제공하세요. 결과 테이블에는 앨범 이름, 미디어 유형 및 장르가 포함되어야 하며 ID는 표시되지 않아야 합니다.
+
+17. 모든 인보이스를 보여주는 쿼리를 제공하세요. 각 인보이스의 라인 항목 수가 포함되어야 합니다.
+
+18. 각 영업 사원이 달성한 총 판매량을 보여주는 쿼리를 제공하세요.
+
+19. 각 영업 사원에게 할당된 고객 수를 보여주는 쿼리를 제공하세요.
+
+20. 국가별 총 판매량을 보여주는 쿼리를 제공하세요. 어느 국가의 고객이 가장 많은 금액을 지출했는지 확인하세요.
+
+21. 2013년 가장 많이 구매된 트랙을 보여주는 쿼리를 제공하세요.
+
+22. 전체에서 가장 많이 구매된 상위 5개의 트랙을 보여주는 쿼리를 제공하세요.
+
+23. 상위 3개의 베스트 셀링 아티스트를 보여주는 쿼리를 제공하세요.
+
+24. 가장 많이 구매된 미디어 유형을 보여주는 쿼리를 제공하세요.
