@@ -1,0 +1,52 @@
+{% extends "topbar.html" %}
+{% block title %}USER PAGE{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1>user Page</h1>
+    <ul >
+        <li>
+            <span>이름</span>
+            <span>성별</span>
+            <span>나이</span>
+            <span>생년월일</span>
+            <ul>
+                {% for user in users2 %}
+                <li>
+                    <span>{{ user['Name'] }}</span>
+                    <span>{{ user['Gender'] }}</span>
+                    <span>{{ user['Age'] }} </span>
+                    <span>{{ user['Birthdate'] }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+</section>
+<nav>
+    <ul class="pagination">
+        <!-- {% if page > 1 %} -->
+        <li><a href="{{ url_for('user', page=1) }}"><i class="fa-solid fa-angles-left"></i></a></li>
+        <li><a href="{{ url_for('user', page=page-1) }}"><i class="fa-solid fa-angle-left"></i></a></li>
+        <!-- {% endif %} -->
+
+        {% set start_page = (page - 1) // 5 * 5 + 1 %}
+        {% set end_page = start_page + 4 %}
+        {% if end_page > total_pages %}
+            {% set end_page = total_pages %}
+        {% endif %}
+
+        {% for p in range(start_page, end_page + 1) %}
+        <li class="{% if p == page %}active{% endif %}"><a href="{{ url_for('user', page=p) }}">{{ p }}</a></li>
+        {% endfor %}
+        
+        <!-- {% if page < total_pages %} -->
+        <li><a href="{{ url_for('user', page=page+1) }}"><i class="fa-solid fa-angle-right"></i></a></li>
+        <li><a href="{{ url_for('user', page=total_pages) }}"><i class="fa-solid fa-angles-right"></i></a></li>
+        <!-- {% endif %} -->
+    </ul>
+</nav>
+<!-- {% for page_num in range(1, total_pages) %}
+<a href="/{{ page_num }}">{{ page_num }}</a>
+{% endfor %} -->
+{% endblock %}
