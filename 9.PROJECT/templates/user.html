@@ -4,13 +4,13 @@
 {% block content %}
 <section class="container">
     <h1>user Page</h1>
-    <ul >
+    <ul class="list_header">
         <li>
             <span>이름</span>
             <span>성별</span>
             <span>나이</span>
             <span>생년월일</span>
-            <ul>
+            <ul class="list_item">
                 {% for user in users2 %}
                 <li>
                     <span>{{ user['Name'] }}</span>
