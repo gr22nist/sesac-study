@@ -1,0 +1,27 @@
+crm/
+├── app/                        
+│   ├── __init__.py             # 초기화
+│   ├── models.py               # 데이터베이스 모델
+│   ├── views/                  # 라우팅 정의
+│   │   ├── __init__.py         # 뷰 모듈 초기화
+│   │   ├── user.py             
+│   │   ├── store.py            
+│   │   ├── order.py            
+│   │   ├── orderitem.py        
+│   │   └── item.py             
+│   ├── static/                 
+│   │   ├── css/              
+│   │   ├── js/               
+│   ├── templates/              
+│   │   ├── base.html           # 베이스
+│   │   ├── user.html           # 사용자
+│   │   ├── user_detail.html    # 사용자 상세
+│   │   ├── order.html          # 주문
+│   │   ├── order_detail.html   # 주문 상세
+│   │   ├── orderitem.html      # 주문 아이템
+│   │   ├── item.html           # 아이템
+│   │   └── store.html          # 상점
+│   ├── database.py             # 데이터베이스 설정
+│   ├── search.py               # 검색 기능 모듈
+│   └── paginate.py             # 페이징 모듈
+└── app.py                      # 앱 실행
