@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bargraph" width="400" height="400"></canvas>
+<script>
+  const canvas = document.getElementById('bargraph');
+  const context = canvas.getContext('2d');
+
+  const graphData = {
+  A: 10, B: 20, C: 40, D: 60, E: 80
+  }
+
+  function drawBarGraph(date) {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    context.barWidth = 30;
+    let startX = 20;
+
+    for (const key in data) {
+      const barHeight = data[key];
+      context.fillStyle = "blue";
+      context.fillRect(startX, canvas.height - barHeight, barWidth, barHeight);
+    
+      context.fillStyle = 'red';
+      context.fillText(key, startX + barWidth / 2, canvas/height - 5)
+    }
+  }
+  drawBarGraph();
+</script>
+</body>
+</html>
