@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <title>Document</title>
-</head>
-<body>
-  <canvas id="bargraph" width="400" height="200"></canvas>
+<html>
+    <head>
+        <title>Doughnut Chart Example</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <canvas id="doughnutChart" width="400" height="200"></canvas>
 
-  <script>
-    const ctx = document.getElementById('bargraph').getContext('2d')
-    const barChart = new Chart(ctx, {
-      type: 'doughnet',
-      data : {
-        labels: ['red', 'blue', 'yellow'],
-        datasets: [
-          {
-            label: 'Data',
-            data: [30, 20, 50],
-            backgroundColor: ['red', 'blue', 'yellow', 'green']
-          }
-        ]
-      },
-      options: {},
-    });
-  </script>
-</body>
+        <script>
+            var ctx = document.getElementById('doughnutChart').getContext('2d');
+            var doughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow'],
+                    datasets: [
+                        {
+                            data: [30, 20, 50],
+                            backgroundColor: ['red', 'blue', 'yellow'],
+                        },
+                    ],
+                },
+                options: {},
+            });
+        </script>
+    </body>
 </html>
