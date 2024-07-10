@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OpenStreetMap 경로 탐색</title>
+        <style>
+            #map {
+                height: 600px;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <label for="start">출발지 (lat, lon):</label>
+            <input type="text" id="start" placeholder="예: 37.5665, 126.9784" />
+            <br />
+            <label for="end">도착지 (lat, lon):</label>
+            <input type="text" id="end" placeholder="예: 37.4979, 127.0276" />
+            <br />
+            <button onclick="findRoute()">경로 찾기</button>
+        </div>
+        <div id="map"></div>
+
+        <script src="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.css" />
+
+        <script>
+            var map = L.map('map').setView([37.5665, 126.9784], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+                maxZoom: 18,
+            }).addTo(map);
+
+            function findRoute() {
+                var startInput = document.getElementById('start').value;
+                var endInput = document.getElementById('end').value;
+
+                // 입력값이 있는지 확인
+                if (!startInput || !endInput) {
+                    alert('출발지와 도착지 좌표를 모두 입력해주세요.');
+                    return;
+                }
+
+                // 입력값을 쉼표로 분리하여 좌표로 변환
+                var startCoord = startInput.split(',').map((coord) => parseFloat(coord.trim()));
+                var endCoord = endInput.split(',').map((coord) => parseFloat(coord.trim()));
+
+                // 유효한 좌표값인지 확인
+                if (isNaN(startCoord[0]) || isNaN(startCoord[1]) || isNaN(endCoord[0]) || isNaN(endCoord[1])) {
+                    alert('올바른 좌표값을 입력해주세요.');
+                    return;
+                }
+
+                // 경로 표시
+                var route = L.polyline([startCoord, endCoord], { color: 'blue' }).addTo(map);
+                map.fitBounds(route.getBounds());
+            }
+        </script>
+    </body>
+</html>
