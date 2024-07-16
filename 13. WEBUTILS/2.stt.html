@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>STT(Speech To Text)</h1>
+    <button onclick="startRecognition()">녹음시작</button>
+    <p id="result">여기는 음성 인식된 결과가 출력될 공간임</p>
+</body>
+<script>
+    function startRecognition() {
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'ko-KR'; // en-US
+
+        // 음성 인식이 되었을 때, 호출될 콜백 함수 등록
+        recognition.onresult = function(event) {
+            const transcript = event.result[0][0].transcript;
+            document.getElementById('result').innerText = transcript;
+        }
+
+        // 오류가 났을 때, 호출될 콜백 함수 등록
+        recognition.onerror = function(event) {
+            console.error(event.error); // 오류가 나면 출력
+        }
+
+        recognition.start();
+    }
+</script>
+</html>
