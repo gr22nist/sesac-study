@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOOGLE 검색 결과</title>
+    <style>
+        body {
+            /*display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;*/
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>검색결과: {{ query }}</h1>
+    <a href="/">다시 검색</a>
+    <hr>
+    {% for item in results['documents'] %}
+    <div>
+        <h3>{{ item['title'] | safe }}</h3>
+        <p>{{ item['contents'] | safe }}</p>
+        <a href="{{ item['url'] }}">{{ item['url'] }}</a>
+    </div>
+    
+    {% endfor %}
+</body>
+</html>
