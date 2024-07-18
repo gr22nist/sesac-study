@@ -5,28 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOOGLE 검색 결과</title>
     <style>
-        body {
-            /*display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;*/
-            
-        }
     </style>
 </head>
 <body>
     <h1>검색결과: {{ query }}</h1>
     <a href="/">다시 검색</a>
     <hr>
-    {% for item in results['documents'] %}
-    <div>
-        <h3>{{ item['title'] | safe }}</h3>
-        <p>{{ item['contents'] | safe }}</p>
-        <a href="{{ item['url'] }}">{{ item['url'] }}</a>
-    </div>
-    
-    {% endfor %}
+    {% if search_type == 'web' %}
+        {% for item in results['documents'] %}
+        <div>
+            <h3>{{ item['title'] | safe }}</h3>
+            <p>{{ item['contents'] | safe }}</p>
+            <a href="{{ item['url'] }}">{{ item['url'] }}</a>
+        </div>
+        {% endfor %}
+
+    {% elif search_type == 'image' %}
+        {% for item in results['documents'] %}
+        <div>
+            <h3>{{ item['display_sitename'] }}</h3>
+            <img src="{{ item['thumbnail_url'] }}" alt="">
+            <a href="{{ item['doc_url'] }}"></a>
+            <p>이미지 크기: {{ item['width'] }} * {{ item['height'] }} </p>
+        </div>
+        {% endfor %}
+
+    {% elif search_type == 'vclip' %}
+        {% for item in results['documents'] %}
+        <div>
+            <h3>{{ item['title'] }}</h3>
+            <img src="{{ item['thumbnail'] }}" />
+            <a href="{{ item['url'] }}" target="_blank">보러가기</a>
+            <p>플레이 타임: {{ item['play_time'] }}</p>
+        </div>
+        {% endfor %}
+    {% endif %}
+
 </body>
 </html>
